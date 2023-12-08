@@ -38,11 +38,11 @@ class CustomerController extends Controller
 
     public function index(){
         $customer = Customer::all();
-        return view('get-list',['customer'=>$customer]);
+        return view('Customers.get-list',['customer'=>$customer]);
     }
 
     public function create(){
-        return view('create_customer');
+        return view('Customers.create_customer');
     }
     public function insert(CustomerRequest $request){
         
@@ -52,13 +52,13 @@ class CustomerController extends Controller
         if($customer){
             return redirect()->route('customers.index');
         }
-        return view('create_customer');
+        return view('Customers.create_customer');
     }
     public function show(Customer $customer){
-        return view('detail_customer',['customer' => $customer]);
+        return view('Customers.detail_customer',['customer' => $customer]);
     }
     public function edit(Customer $customer){
-        return view('edit_customer',['customer'=>$customer]);
+        return view('Customers.edit_customer',['customer'=>$customer]);
     }
     public function update(Customer $customer, CustomerRequest $customerRequest){
         $customer->update($customerRequest->validated());

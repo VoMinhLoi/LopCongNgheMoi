@@ -20,9 +20,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('form-login',[AuthController::class,'get_form_login'])->name('get_form_login');
-// Route::post('login', [AuthController::class, 'login'])->name('login');
+Route::get('form-login',[AuthController::class,'getFormLogin'])->name('get_form_login');
 Route::post('login', [AuthController::class, 'login'])->name('login');
+
+Route::get('form-register',[AuthController::class,'getFormRegister'])->name('get_form_register');
+Route::post('register',[AuthController::class,'register'])->name('register');
 
 Route::group(['prefix'=>'customers'],function(){
     Route::get('/create',[CustomerController::class,'create']);
