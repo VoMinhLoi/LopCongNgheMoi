@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CustomerController;
 use App\Models\Customer;
 use Illuminate\Support\Facades\Route;
@@ -18,6 +19,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('form-login',[AuthController::class,'get_form_login'])->name('get_form_login');
+// Route::post('login', [AuthController::class, 'login'])->name('login');
+Route::post('login', [AuthController::class, 'login'])->name('login');
 
 Route::group(['prefix'=>'customers'],function(){
     Route::get('/create',[CustomerController::class,'create']);
