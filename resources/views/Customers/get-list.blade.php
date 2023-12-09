@@ -24,7 +24,9 @@
     </style>
 </head>
 <body>
-    <a href="/customers/create">Create customer</a>
+    <a href="{{ route('customer.create') }}">Create customer </a>
+    {{-- <a href="/customer/create">Create customer</a> --}}
+    <a href="{{ route('logout') }}">Log out</a>
     <table>
         <tr>
             <th>Id</th>

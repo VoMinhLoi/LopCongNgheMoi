@@ -54,4 +54,8 @@ class AuthController extends Controller
             'message' => 'Dang ky that bai'
         ]);
     }
+    public function logOut(){
+        Auth::logout();
+        return view('Auth.form-login');
+    }
 }
